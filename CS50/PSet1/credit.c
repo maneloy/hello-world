@@ -125,7 +125,7 @@ int get_first_n_digits(long long int number, int n) {
     long long int temp;
     
     temp = number;
-    while (temp > power(10, n))                 // I think it should be (temp >= power(10, n))
+    while (temp >= power(10, n))
         temp /= 10;   
     return temp;
 }

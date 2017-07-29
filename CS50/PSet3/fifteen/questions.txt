@@ -1,0 +1,6 @@
+0. Between 3 x 3 and 9 x 9.
+1. With a multidimensional array.
+2. The greet function.
+3. init, draw, move, won
+
+

@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     }
 
     // remember filenames
-    float factor = strtof(argv[1], NULL);
+    int factor = strtod(argv[1], NULL);
     char *infile = argv[2];
     char *outfile = argv[3];
 
@@ -35,6 +35,12 @@ int main(int argc, char *argv[])
         fclose(inptr);
         fprintf(stderr, "Could not create %s.\n", outfile);
         return 3;
+    }
+    
+    if (factor < 0 || factor > 100) 
+    {
+        printf("Resize factor must be between 0 and 100.\n");
+        return 4;
     }
 
     // read infile's BITMAPFILEHEADER

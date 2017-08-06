@@ -1,10 +1,12 @@
 #lang sicp
 
+(define (square x) (* x x))
+(define (cube x) (* x x x))
+(define (average x y) (/ (+ x y) 2))
+
 ; implement a procedure that calculates cube roots using Newton's method
 
 (define (cube-root x)
-  (define (square x) (* x x))
-  (define (cube x) (* x x x))
   (define (try guess)
     (if (good-enough? guess)
         guess
@@ -22,18 +24,15 @@
 ; added the sqrt rocedure explained in the book, just because :)
 
 (define (sqrt x)
-  (define (square x) (* x x))
-  (define (average x y)
-    (/ (+ x y) 2))
-  (define (good-enough? guess x)
+  (define (good-enough? guess)
     (< (abs (- (square guess) x)) 0.001))
-  (define (improve guess x)
+  (define (improve guess)
     (average guess (/ x guess)))
-  (define (sqrt-iter guess x)
-    (if (good-enough? guess x)
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
         guess
-        (sqrt-iter (improve guess x) x)))
-  (sqrt-iter 1.0 x))
+        (sqrt-iter (improve guess))))
+  (sqrt-iter 1.0))
 
 
         

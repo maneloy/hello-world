@@ -74,14 +74,3 @@ void add_extension(char *name, char *extension) {
         name[i++] = extension[j++];
     name[i] = '\0';
 }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        

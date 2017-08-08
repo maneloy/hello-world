@@ -1,0 +1,7 @@
+0.an artificial long word said to mean a lung disease caused by inhaling very fine ash and sand dust.
+1.returns resource usage measures for, in this case, RUSAGE_SELF, that is, the resource usage statistics for the calling process.
+2.sixteen. two structs and fourteen variables.
+3.to avoid passing the entire struct as an argument, and to just look at the relevant members.
+4.reads the text symbol by symbol, increasing an index that serves to place characters in the word buffer, ignoring strings where a non-letter character has been found. once various symbols have been read and no conflicting character has been encountered except for the "ending" non alphanumeric character (\n, ' ', EOF), a word is completed, then checked for misspellings, and the index is reinitialized to 0, in order to start storing a new word.
+5.it would make it more difficult to correctly deal with conflicting characters and strings, also, fscanf doesn't allow for limiting memory use, like for example fgets does, and thus can cause buffer overflows. 
+6.because those parameters are never intended to be modified through the program, and this helps make sure they never are.

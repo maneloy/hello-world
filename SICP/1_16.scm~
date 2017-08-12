@@ -21,7 +21,7 @@
         ((even? n) (square (fast-expt b (/ n 2))))
         (else (* b (fast-expt b (- n 1))))))
 
-(define (fastest-expt b n) ; iterative, uses successive squaring. Exercise 1.16 (my solution)
+(define (fastest-expt b n) ; iterative, uses successive squaring. Exercise 1.16
   (define (fast-expt-iter a count)
     (if (or (= count 1) (< count 1))
         a
@@ -29,10 +29,3 @@
   (if (even? n)
       (fast-expt-iter b n)
       (* b (fast-expt-iter b (- n 1)))))
-
-(define (nice-fast-expt b n) ; same as above, better/more elegant, NOT made by me.
-  (define (iter a b n)
-    (cond ((= n 0) a)
-          ((even? n) (iter a (square b) (/ n 2)))
-          (else (iter (* a b) b (- n 1)))))
-  (iter 1 b n))

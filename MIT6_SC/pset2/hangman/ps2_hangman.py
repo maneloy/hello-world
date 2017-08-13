@@ -107,8 +107,4 @@ def hangman():
     print("Congratulations, you won!")
     return 0
 
-hangman()
-        
-            
-        
-        
+hangman() # Execute main function

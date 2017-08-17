@@ -26,14 +26,14 @@
   (if (prime? n)
       (report-prime (- (runtime) start-time))))
 
-(define (search-for-primes begin end)
+(define (search-for-primes beginning end)
   (define (search current)
     (cond ((even? current) (search (inc current)))         
           ((= current end) (timed-prime-test current))
           (else (timed-prime-test current)
                 (if (not (= (+ current 1) end))
                     (search (inc current))))))
-  (search begin))
+  (search beginning))
 
 (display "The three smallest prime numbers greater than 1,000:")
 (search-for-primes 1000 1019)

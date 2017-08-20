@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
             ;   // don't rotate char if char is not a letter
     }
     
-    printf("ciphertext: %s\n", output);
+    printf("ciphertext: %s", output);
     return 0;
 }
     

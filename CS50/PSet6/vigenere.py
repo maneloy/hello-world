@@ -14,8 +14,11 @@ def main():
     
     if argc != 3:
         print("Usage: python3 vigenere <key> <mode(cipher-decipher)>")
-    
-    text = input("plaintext: ")
+        
+    if mode == "decipher":
+        text = input("ciphertext: ")
+    else:
+        text = input("plaintext: ")
         
     for i in range(len(argv[1])):
         if ord('A') <= ord(argv[1][i]) <= ord('Z'):
@@ -36,7 +39,10 @@ def main():
         output += chr(rotated_char)
         j += 1
     
-    print("ciphertext: {}".format(output))   
+    if mode == "decipher":
+        print("plaintext: {}".format(output))  
+    else:
+        print("ciphertext: {}".format(output)) 
     exit(0)        
 
 

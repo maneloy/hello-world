@@ -1,9 +1,11 @@
+"https://en.wikipedia.org/wiki/Payment_card_number" # Info on more issuing networks.
+
 def main():
     """
     Checks the validity of a credit card number by using Luhn's
     algorithm, and comparing the number of digits as well as the
     first digit or first two digits.
-    Recognizes: MasterCard, VISA, American Express.
+    Recognizes: MasterCard (Pre-2017), VISA, American Express, UATP.
     """
     
     number = int(input("Enter the credit card number, without hyphens: "))
@@ -18,6 +20,8 @@ def main():
     if num_digits == 15:
         if (ftd == 34 or ftd == 37):
             print("AMEX")
+        elif (fd == 1):
+            print("UATP")
         else:
             print("INVALID")
     

@@ -1,8 +1,8 @@
-"https://en.wikipedia.org/wiki/Payment_card_number" # Info on more issuing networks.
+"https://en.wikipedia.org/wiki/Payment_card_number"                                   #Info on more issuing networks.
+"https://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm"#
 
 def main():
-    """
-    Checks the validity of a credit card number by using Luhn's
+    """ Checks the validity of a credit card number by using Luhn's
     algorithm, and comparing the number of digits as well as the
     first digit or first two digits.
     Recognizes: MasterCard (Pre-2017), VISA, American Express, UATP.
@@ -45,18 +45,15 @@ def main():
     exit(0)
     
 def is_valid(card_number):
-    """
-    Returns True if the credit card number's Luhn number ends with 0,
-    False otherwise.
+    """ Returns True if the credit card number's Luhn number ends with 0,
+        False otherwise.
     """
     
     return ((checksum(card_number) % 10) == 0)
     
 
 def checksum(number):
-    """
-    Returns the Luhn algorith sum of a given credit card number.
-    """
+    """ Returns the Luhn algorith sum of a given credit card number. """
     
     check_sum = 0
     temp = number
@@ -73,9 +70,7 @@ def checksum(number):
     return check_sum
 
 def add_digits(number):
-    """
-    Returns the sum of a number's digits.
-    """
+    """ Returns the sum of a number's digits. """
     
     dsum = 0
     temp = number
@@ -86,9 +81,7 @@ def add_digits(number):
     
     
 def how_many_digits(number):
-    """
-    Returns the number of digits of a given number.
-    """
+    """ Returns the number of digits of a given number. """
     
     temp = number
     digits = 0
@@ -101,9 +94,7 @@ def how_many_digits(number):
 
 
 def get_first_n_digits(number, n):
-    """
-    Takes a number and returns the first n of its digits.
-    """
+    """ Takes a number and returns the first n of its digits. """
     
     temp = number
     while (temp >= 10**n):

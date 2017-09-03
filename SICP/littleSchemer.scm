@@ -52,10 +52,3 @@
       ((null? l) (quote ()))
       (else (cons (car (cdr (car l)))
                   (seconds (cdr l)))))))
-
-
-
-
-
-
-

@@ -11,6 +11,7 @@
 ;; First Commandment: Always ask 'null?' as the first question in expressing any function.
 ;; Second Commandment: Use 'cons' to build lists.
 ;; Third Commandment: When building a list, describe the first typical element, and the cons it onto the natural recursion.
+;; Fourth Commandment: Always change at least one argument while recurring. The changing argument must be tested in the terminating condition.
 
 ;; ~~~CODE~~~
 ;; atom?: strings of characters not enclosed by ()
@@ -102,3 +103,30 @@
       ((null? lat) (quote ()))
       ((eq? (car lat) a) (multirember a (cdr lat)))
       (else (cons (car lat) (multirember a (cdr lat)))))))
+
+;; multiinsertR: inserts 'new' to the right of all 'old' in 'lat'
+(define multiinsertR
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      ((eq? (car lat) old) (cons old
+                                 (cons new (multiinsertR new old (cdr lat)))))
+      (else (cons (car lat) (multiinsertR new old (cdr lat)))))))
+
+;; multiinsertL: inserts 'new' to the left of all 'old' in 'lat'
+(define multiinsertL
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      ((eq? (car lat) old) (cons new
+                                 (cons old
+                                       (multiinsertL new old (cdr lat)))))
+      (else (cons (car lat) (multiinsertL new old (cdr lat)))))))
+
+;; multisubst: replaces all instances of 'old' in 'lat' by 'new'.
+(define multisubst
+  (lambda (new old lat)
+    (cond
+      ((null? lat) (quote ()))
+      ((eq? (car lat) old) (cons new (multisubst new old (cdr lat))))
+      (else (cons (car lat) (multisubst new old (cdr lat)))))))

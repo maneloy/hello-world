@@ -130,3 +130,37 @@
       ((null? lat) (quote ()))
       ((eq? (car lat) old) (cons new (multisubst new old (cdr lat))))
       (else (cons (car lat) (multisubst new old (cdr lat)))))))
+
+;; add1: adds 1 to a number.
+(define add1
+  (lambda (n)
+    (+ n 1)))
+
+;; sub1: substracts 1 from a number.
+(define sub1
+  (lambda (n)
+    (- n 1)))
+
+;; o+: sums two numbers.
+(define o+
+  (lambda (n m)
+    (cond
+      ((zero? m) n)
+      (else (o+ (add1 n)
+                (sub1 m))))))
+
+;; o-: returns the difference between two numbers
+(define o-
+  (lambda (n m)
+    (cond
+      ((zero? m) n)
+      (else (o- (sub1 n)
+                (sub1 m))))))
+
+;; addtup: builds a number by adding all numbers in a given tup
+(define addtup
+  (lambda (tup)
+    (cond
+      ((null? tup) 0)
+      (else (+ (car tup)
+               (addtup (cdr tup)))))))

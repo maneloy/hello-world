@@ -9,9 +9,13 @@
 
 ;; ~~~COMMANDMENTS~~~
 ;; First Commandment: Always ask 'null?' as the first question in expressing any function.
+;;                    When recurring on a list of atoms, 'lat', ask two questions: '(null? lat)' and 'else'.
+;;                    When recurring on a number, 'n', ask two questions: '(zero? n)' and 'else'.  
 ;; Second Commandment: Use 'cons' to build lists.
-;; Third Commandment: When building a list, describe the first typical element, and the cons it onto the natural recursion.
-;; Fourth Commandment: Always change at least one argument while recurring. The changing argument must be tested in the terminating condition.
+;; Third Commandment: When building a list, describe the first typical element, and the cons it onto the natural    
+;;                    recursion.
+;; Fourth Commandment: Always change at least one argument while recurring. The changing argument must be tested in 
+;;                     the terminating condition. If using 'cdr', ask 'null?'. If using 'sub1', ask 'zero?'. 
 
 ;; ~~~CODE~~~
 ;; atom?: strings of characters not enclosed by ()
@@ -164,3 +168,9 @@
       ((null? tup) 0)
       (else (+ (car tup)
                (addtup (cdr tup)))))))
+
+;; o*; add up a number 'n', 'm' times.
+(define o*
+  (lambda (n m)
+    (cond ((zero? m) 0)
+          (else (+ n (o* n (sub1 m)))))))
